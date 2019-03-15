@@ -24,29 +24,29 @@ const Article = ({
   relativePath,
   authors,
 }: Props) => (
-    <article className="article-reader">
-      <h1 className="article-reader__headline">{title}</h1>
-      <TOC heading="TABLE OF CONTENTS" tableOfContents={tableOfContents} />
-      <div className="article-reader__inner">
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            marginTop: '5rem',
-            alignItems: 'center',
-          }}
-        >
-          Contributors:
-      {authors &&
-            authors.map(
-              author => author && <AuthorLink username={author} key={author} />
-            )}
-        </div>
-        <EditLink relativePath={relativePath} />
-        <Pagination previous={previous} next={next} />
+  <article className="article-reader">
+    <h1 className="article-reader__headline">{title}</h1>
+    <TOC heading="TABLE OF CONTENTS" tableOfContents={tableOfContents} />
+    <div className="article-reader__inner">
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          marginTop: '5rem',
+          alignItems: 'center',
+        }}
+      >
+        Contributors:
+        {authors &&
+          authors.map(
+            author => author && <AuthorLink username={author} key={author} />
+          )}
       </div>
-    </article>
-  );
+      <EditLink relativePath={relativePath} />
+      <Pagination previous={previous} next={next} />
+    </div>
+  </article>
+);
 
 export default Article;
